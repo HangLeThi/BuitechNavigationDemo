@@ -1,6 +1,9 @@
 package buitech.uk.auto.steps.serenity;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -22,17 +25,27 @@ public class BuitechScenarioSteps {
 
 	@When("^I click on \"([^\"]*)\"$")
 	public void i_click_on(String Link) throws Throwable {
-	    userSteps.click_on_link(Link);
+	  //  userStepsclick_on_link(Link);click_on_testing_services()
+		userSteps.click_on_testing_services();
+		userSteps.click_on_testing_solutions(); 
+		userSteps.click_on_resources();
+		userSteps.click_on_clients();
+		userSteps.click_on_news();
+		
 	}
-
+	/*@When("^I wait for a second$")
+	public void i_wait_for_a_second(int x, TimeUnit SECONDS) throws Throwable {
+		
+		 userSteps.wait_for_loading(x, SECONDS);
+	}*/
 	@When("^the page is display with \"([^\"]*)\"$")
-	public void the_page_is_display_with(String title) throws Throwable {
-		 Assert.assertEquals(userSteps.getTitleOfHomePage(), title);
-	    Assert.assertEquals(userSteps.getTitleOfTestingServicesPage(), title);
-	    Assert.assertEquals(userSteps.getTitleOfTestingSolutionsPage(), title);
-	    Assert.assertEquals(userSteps.getTitleOfTestingResourcesPage(), title);
-	    Assert.assertEquals(userSteps.getTitleOfTestingClientsPage(), title);
-	    Assert.assertEquals(userSteps.getTitleOfTestingNewsPage(), title);
+	public void the_page_is_display_with(String Title) throws Throwable {
+		// Assert.assertEquals(userSteps.getTitleOfHomePage(), title);
+	    Assert.assertEquals(userSteps.getTitleOfTestingServicesPage(), Title);
+	    Assert.assertEquals(userSteps.getTitleOfTestingSolutionsPage(), Title);
+	    Assert.assertEquals(userSteps.getTitleOfTestingResourcesPage(), Title);
+	    Assert.assertEquals(userSteps.getTitleOfTestingClientsPage(), Title);
+	    Assert.assertEquals(userSteps.getTitleOfTestingNewsPage(), Title);
 	}
 
 	@Then("^I close browser$")
